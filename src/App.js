@@ -1,3 +1,5 @@
+//React
+import { BrowserRouter as Router } from 'react-router-dom';
 
 //Components
 import Header from './components/header';
@@ -5,14 +7,14 @@ import Instructions from './components/instructions'
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Instructions />
+
+    <div className="font-mono">
+      <Router>
+        <Header /> {/* has to be on every page */}
+        <Instructions /> {/* only has to be on home page */}
+      </Router>
     </div>
-    // <Header />
-    // <div>
-    //   <h1 className="text-4xl font-bold text-center">Test</h1>
-    // </div>
+
   );
 };
 
