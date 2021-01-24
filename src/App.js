@@ -1,11 +1,18 @@
-// import logo from './logo.svg';
-// import './App.css';
+
+//Components
+import Header from './components/header';
+import Instructions from './components/instructions'
 
 function App() {
   return (
     <div>
-      <h1 className="text-4xl font-bold text-center">Test</h1>
+      <Header />
+      <Instructions />
     </div>
+    // <Header />
+    // <div>
+    //   <h1 className="text-4xl font-bold text-center">Test</h1>
+    // </div>
   );
 };
 
