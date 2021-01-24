@@ -7,17 +7,44 @@ function Game() {
                 <p className="text-3xl text-center">Round: 0</p>
             </div>
 
-            <div className="flex items-center justify-center">
-                <div className="h-80 w-80 grid grid-cols-3 grid-flow-row gap-4 border-solid border-4 border-gray-500 text-center items-center">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
+            <div className="flex flex-grow items-center justify-center">
+                <div className="h-auto w-auto grid grid-cols-3 grid-flow-row gap-4 border-solid border-4 border-black text-center items-center p-4 justify-evenly">
+                    
+                    <div>
+                        <button type="button" id="1" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">1</button>
+                    </div>
+
+                    <div>
+                        <button type="button" id="2" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">2</button>
+                    </div>
+
+                    <div>
+                        <button type="button" id="3" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">3</button>
+                    </div>
+
+                    <div>
+                        <button type="button" id="4" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">4</button>
+                    </div>
+
+                    <div>
+                        <button type="button" id="5" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">5</button>
+                    </div>
+
+                    <div>
+                        <button type="button" id="6" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">6</button>
+                    </div>
+
+                    <div>
+                        <button type="button" id="7" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">7</button>
+                    </div>
+                    
+                    <div>
+                        <button type="button" id="8" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">8</button>
+                    </div>
+                    
+                    <div>
+                        <button type="button" id="9" className="h-28 w-28 border-solid border-4 border-gray-400 rounded-md">9</button>
+                    </div>
                 </div>
             </div>
         </div>
