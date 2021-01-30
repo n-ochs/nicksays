@@ -1,9 +1,15 @@
-// import { createStore } from 'redux';
+import { createStore } from 'redux';
 
-// const defaultState = {
-//     round: 0,
-//     question: [],
-//     answer: []
-// };
+export const defaultState = {
+    round: 0,
+    question: [],
+    answer: []
+};
 
-// export const store = createStore(defaultState);
+const reducer = (state = defaultState, action) => {
+    return state;
+};
+
+const store = createStore(reducer);
+
+export default store;

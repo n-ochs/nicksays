@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Square from './square';
-import { store } from '../redux/store';
+import store from '../redux/store';
 
 function Game() {
 
@@ -34,21 +34,24 @@ function Game() {
     //     renderGrid();
     //   }, [grid, renderGrid]);
 
-    // const randomLit = () => {
-    //     const randomIndex = Math.floor((Math.random() * 9) + 1);
-    //     initialGrid[randomIndex].isLit = !initialGrid[randomIndex].isLit;
-    //     console.log('pressed')
-    //     console.log(initialGrid)
-    //     setGrid(initialGrid)
-    // };
-
-    console.log(store)
+    const randomLit = () => {
+        // const randomIndex = Math.floor((Math.random() * 9) + 1);
+        // initialGrid[randomIndex].isLit = !initialGrid[randomIndex].isLit;
+        // console.log('pressed')
+        // console.log(initialGrid)
+        // setGrid(initialGrid)
+        console.log(store.getState())
+    };
 
     return (
         <div>
             <div className="text-3xl text-center">
-                <button type="button" className="bg-blue-600">Start!</button>
+                <button type="button" className="bg-blue-600" onClick={() => randomLit()}>Start!</button>
                 <p className="text-3xl">Round: 0</p>
+            </div>
+
+            <div>
+                test
             </div>
 
             <div className="flex flex-grow items-center justify-center">
