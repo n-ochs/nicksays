@@ -1,9 +1,9 @@
-import createStore from 'react-redux';
+// import { createStore } from 'redux';
 
-const defaultState = {
-    round: 0,
-    question = [],
-    answer = []
-};
+// const defaultState = {
+//     round: 0,
+//     question: [],
+//     answer: []
+// };
 
-export const store = createStore(round, question, answer, defaultState);
+// export const store = createStore(defaultState);
