@@ -10,12 +10,12 @@ export const defaultState = {
 //ACTIONS
 const START = 'START';
 const QUESTION = 'QUESTION';
-const ADD_MOVE = 'ADD';
+const ADD = 'ADD';
 const NEXT = 'NEXT';
 
 //REDUCER
 const reducer = (state = defaultState, action) => {
-    const { type } = action;
+    const { type, payload } = action;
     switch (type) {
         case START:
             return {
@@ -28,9 +28,10 @@ const reducer = (state = defaultState, action) => {
                 ...state,
                 question: Array(state.round).fill(Math.floor((Math.random() * 9) + 1))
             }
-        case ADD_MOVE:
+        case ADD:
             return {
-
+                ...state,
+                answer: state.answer.concat(payload.id)
             }
         case NEXT:
             return {
