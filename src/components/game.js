@@ -18,31 +18,7 @@ function Game() {
         {id: 9, isLit: false}
     ];
 
-    // const initialGrid = store.getState().theGrid
-
-    // let lit = 'bg-transparent';
-
-    // const randomSquare = () => {
-    //     return Math.floor((Math.random() * 9) + 1);
-    // };
-
-    // const randomLit = (grid) => {
-    //     // grid[0].id
-    //     grid[randomSquare]
-    //     setLit(true);
-    // };
-
     const [grid, setGrid] = useState(initialGrid);
-
-    // useEffect(() => {
-    //     renderGrid();
-    //   }, [grid, renderGrid]);
-
-    // const randomLit = () => {
-    //     // console.log('pressed')
-    //     // console.log(initialGrid)
-    //     // setGrid(initialGrid)
-    // };
 
     const gameStart = () => {
         store.dispatch({ type: 'START' })
@@ -50,7 +26,7 @@ function Game() {
 
     useSelector(state => state);
 
-    const askQuestion = (grid) => {
+    const askQuestion = () => {
         store.dispatch({type: 'QUESTION'});
         const questionArray = store.getState().question;
       
@@ -70,13 +46,18 @@ function Game() {
                 {id: 9, isLit: false}
             ];
             newlyLitGrid[realIndex].isLit = true;
-            console.log(realIndex);
+            console.log(realIndex + 1);
             setGrid(newlyLitGrid);
+            setTimeout(() => {
+                newlyLitGrid[realIndex].isLit = false;
+                setGrid(newlyLitGrid);
+                console.log('changed') //https://tailwindcss.com/docs/transition-property
+            }, 1000);
             if (i < questionArray.length - 1) i++;
             else clearInterval(interval);
-        }
+        };
 
-        interval = setInterval(lightUp, 750)
+        interval = setInterval(lightUp, 750);
     };
 
     return (
@@ -87,7 +68,7 @@ function Game() {
                 <button type="button" className="bg-blue-600" onClick={() => console.log(store.getState())}>state!</button>
             </div>
             <div className="text-3xl text-center mt-2 mb-2">
-                <button type="button" className="bg-blue-600" onClick={() => askQuestion(grid)}>QUESTION!</button>
+                <button type="button" className="bg-blue-600" onClick={() => askQuestion()}>QUESTION!</button>
             </div>
 
             <div className="flex flex-grow items-center justify-center">

@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 
 //DEFAULT STATE
 export const defaultState = {
-    round: 4, //change back to ZERO!!!!!!
+    round: 6, //change back to ZERO!!!!!!
     question: [],
     answer: []
 };
