@@ -60,6 +60,19 @@ function Game() {
         interval = setInterval(lightUp, 750);
     };
 
+    const checkAnswer = () => {
+        const answerArray = store.getState().answer;
+        const questionArray = store.getState().question;
+        for (let i = 0; i < answerArray.length; i++) {
+            if(answerArray[i] === questionArray[i]) {
+                console.log('correct')
+            }
+            else {
+                console.log('wrong')
+            }
+        }
+    }
+
     return (
         <div>
             <div className="text-3xl text-center">
@@ -67,8 +80,13 @@ function Game() {
                 <p className="text-3xl">Round: {store.getState().round}</p>
                 <button type="button" className="bg-blue-600" onClick={() => console.log(store.getState())}>state!</button>
             </div>
+
             <div className="text-3xl text-center mt-2 mb-2">
                 <button type="button" className="bg-blue-600" onClick={() => askQuestion()}>QUESTION!</button>
+            </div>
+
+            <div className="text-3xl text-center mt-2 mb-2">
+                <button type="button" className="bg-blue-600" onClick={() => checkAnswer()}>check answer!</button>
             </div>
 
             <div className="flex flex-grow items-center justify-center">
