@@ -22,12 +22,14 @@ function Game() {
 
     const gameStart = () => {
         store.dispatch({ type: 'START' })
+        store.dispatch({ type: 'QUESTION' })
+        askQuestion();
     }
 
     useSelector(state => state);
 
     const askQuestion = () => {
-        store.dispatch({type: 'QUESTION'});
+        // store.dispatch({type: 'QUESTION'});
         const questionArray = store.getState().question;
       
         let interval, i = 0;
@@ -63,18 +65,28 @@ function Game() {
     return (
         <div>
             <div className="text-3xl text-center">
-                <button type="button" className="bg-blue-600" onClick={() => gameStart()}>Start!</button>
+                <button type="button" className="bg-blue-600 mt-2 mb-2" onClick={() => gameStart()}>Start!</button>
                 <p className="text-3xl">Round: {store.getState().round}</p>
+            </div>
+
+            {/* DEV USE BUTTONS */}
+
+            {/* <div className="text-3xl text-center mt-2 mb-2">
                 <button type="button" className="bg-blue-600" onClick={() => console.log(store.getState())}>state!</button>
-            </div>
-            <div className="text-3xl text-center mt-2 mb-2">
+            </div> */}
+
+            {/* <div className="text-3xl text-center mt-2 mb-2">
                 <button type="button" className="bg-blue-600" onClick={() => askQuestion()}>QUESTION!</button>
-            </div>
+            </div> */}
+
+            {/* <div className="text-3xl text-center mt-2 mb-2">
+                <button type="button" className="bg-blue-600" onClick={() => checkAnswer()}>check answer!</button>
+            </div> */}
 
             <div className="flex flex-grow items-center justify-center">
                 <div className="h-auto w-auto grid grid-cols-3 grid-flow-row gap-4 border-solid border-4 border-black text-center items-center p-4 justify-evenly">
                     {grid.map((item) => {
-                        return <Square key={item.id} isLit={item.isLit} id={item.id} />
+                        return <Square key={item.id} isLit={item.isLit} id={item.id} askQuestion={askQuestion} />
                     })}
 
                 </div>

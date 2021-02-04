@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 
 //DEFAULT STATE
 export const defaultState = {
-    round: 6, //change back to ZERO!!!!!!
+    round: 0,
     question: [],
     answer: []
 };
@@ -21,7 +21,6 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 round: 1,
-                question: Array(1).fill(Math.floor((Math.random() * 9) + 1))
             };
         case QUESTION:
             const randomNumbers = () => {
@@ -42,7 +41,10 @@ const reducer = (state = defaultState, action) => {
             };
         case NEXT:
             return {
-
+                ...state,
+                round: state.round + 1,
+                question: [],
+                answer: []
             };
         default:
             return state;
