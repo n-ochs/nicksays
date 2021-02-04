@@ -60,19 +60,6 @@ function Game() {
         interval = setInterval(lightUp, 750);
     };
 
-    const checkAnswer = () => {
-        const answerArray = store.getState().answer;
-        const questionArray = store.getState().question;
-        for (let i = 0; i < answerArray.length; i++) {
-            if(answerArray[i] === questionArray[i]) {
-                console.log('correct')
-            }
-            else {
-                console.log('wrong')
-            }
-        }
-    }
-
     return (
         <div>
             <div className="text-3xl text-center">
@@ -85,9 +72,9 @@ function Game() {
                 <button type="button" className="bg-blue-600" onClick={() => askQuestion()}>QUESTION!</button>
             </div>
 
-            <div className="text-3xl text-center mt-2 mb-2">
+            {/* <div className="text-3xl text-center mt-2 mb-2">
                 <button type="button" className="bg-blue-600" onClick={() => checkAnswer()}>check answer!</button>
-            </div>
+            </div> */}
 
             <div className="flex flex-grow items-center justify-center">
                 <div className="h-auto w-auto grid grid-cols-3 grid-flow-row gap-4 border-solid border-4 border-black text-center items-center p-4 justify-evenly">
