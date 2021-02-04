@@ -4,17 +4,26 @@ import store from '../redux/store';
 function Square(props) {
 
     const checkAnswer = () => {
+
+        //Adds each user input into the answer array
         store.dispatch({ type: 'ADD', payload: {id: props.id} });
+
+         //Retrieves the latest answer array
         const answerArray = store.getState().answer;
+
+        //Retrieves the latest question array
         const questionArray = store.getState().question;
+
+        //Verifies the user's input as correct or incorrect
         for (let i = 0; i < answerArray.length; i++) {
             if(answerArray[i] === questionArray[i]) {
                 console.log('correct');
             }
             else {
-                console.log('wrong');
+                console.log('incorrect');
             };
         };
+        
     };
 
     return (
