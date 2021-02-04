@@ -7,44 +7,18 @@ import store from '../redux/store';
 function Game() {
 
     const initialGrid = [
-        {id: 1, isLit: false}, 
-        {id: 2, isLit: false}, 
+        {id: 1, isLit: false},
+        {id: 2, isLit: false},
         {id: 3, isLit: false},
         {id: 4, isLit: false},
         {id: 5, isLit: false},
-        {id: 6, isLit: false}, 
+        {id: 6, isLit: false},
         {id: 7, isLit: false},
         {id: 8, isLit: false},
         {id: 9, isLit: false}
     ];
 
-    // let lit = 'bg-transparent';
-
-    // const randomSquare = () => {
-    //     return Math.floor((Math.random() * 9) + 1);
-    // };
-
-    // const randomLit = (grid) => {
-    //     // grid[0].id
-    //     grid[randomSquare]
-    //     setLit(true);
-    // };
-
     const [grid, setGrid] = useState(initialGrid);
-
-    // useEffect(() => {
-    //     renderGrid();
-    //   }, [grid, renderGrid]);
-
-    // const randomLit = () => {
-    //     // const randomIndex = Math.floor((Math.random() * 9) + 1);
-    //     // initialGrid[randomIndex].isLit = !initialGrid[randomIndex].isLit;
-    //     // console.log('pressed')
-    //     // console.log(initialGrid)
-    //     // setGrid(initialGrid)
-    //     store.dispatch({ type: 'START' });
-    //     console.log(store.getState())
-    // };
 
     const gameStart = () => {
         store.dispatch({ type: 'START' })
@@ -52,12 +26,49 @@ function Game() {
 
     useSelector(state => state);
 
+    const askQuestion = () => {
+        store.dispatch({type: 'QUESTION'});
+        const questionArray = store.getState().question;
+      
+        let interval, i = 0;
+        const lightUp = () => {
+            
+            let realIndex = questionArray[i] - 1;
+            let newlyLitGrid = [
+                {id: 1, isLit: false},
+                {id: 2, isLit: false},
+                {id: 3, isLit: false},
+                {id: 4, isLit: false},
+                {id: 5, isLit: false},
+                {id: 6, isLit: false},
+                {id: 7, isLit: false},
+                {id: 8, isLit: false},
+                {id: 9, isLit: false}
+            ];
+            newlyLitGrid[realIndex].isLit = true;
+            console.log(realIndex + 1);
+            setGrid(newlyLitGrid);
+            setTimeout(() => {
+                newlyLitGrid[realIndex].isLit = false;
+                setGrid(newlyLitGrid);
+                console.log('changed') //https://tailwindcss.com/docs/transition-property
+            }, 1000);
+            if (i < questionArray.length - 1) i++;
+            else clearInterval(interval);
+        };
+
+        interval = setInterval(lightUp, 750);
+    };
+
     return (
         <div>
             <div className="text-3xl text-center">
                 <button type="button" className="bg-blue-600" onClick={() => gameStart()}>Start!</button>
                 <p className="text-3xl">Round: {store.getState().round}</p>
                 <button type="button" className="bg-blue-600" onClick={() => console.log(store.getState())}>state!</button>
+            </div>
+            <div className="text-3xl text-center mt-2 mb-2">
+                <button type="button" className="bg-blue-600" onClick={() => askQuestion()}>QUESTION!</button>
             </div>
 
             <div className="flex flex-grow items-center justify-center">

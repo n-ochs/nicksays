@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 
 //DEFAULT STATE
 export const defaultState = {
-    round: 0,
+    round: 6, //change back to ZERO!!!!!!
     question: [],
     answer: []
 };
@@ -22,33 +22,33 @@ const reducer = (state = defaultState, action) => {
                 ...state,
                 round: 1,
                 question: Array(1).fill(Math.floor((Math.random() * 9) + 1))
-            }
+            };
         case QUESTION:
             const randomNumbers = () => {
                 let theQuestion = [];
                 for(let i = 0; i < state.round; i++) {
                     theQuestion.push(Math.floor((Math.random() * 9) + 1));
-                }
+                };
                 return theQuestion;
-            }
+            };
             return {
                 ...state,
                 question: state.question.concat(randomNumbers())
-            }
+            };
         case ADD:
             return {
                 ...state,
                 answer: state.answer.concat(payload.id)
-            }
+            };
         case NEXT:
             return {
 
-            }
+            };
         default:
-            return state
+            return state;
     };
 };
 
-const store = createStore(reducer);
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default store;
