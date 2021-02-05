@@ -4,7 +4,8 @@ import { createStore } from 'redux';
 export const defaultState = {
     round: 0,
     question: [],
-    answer: []
+    answer: [],
+    status: 'pre' //Status can be one of three values: pre, playing, over
 };
 
 //ACTIONS
@@ -12,6 +13,8 @@ const START = 'START';
 const QUESTION = 'QUESTION';
 const ADD = 'ADD';
 const NEXT = 'NEXT';
+const LOST = 'LOST';
+const RESTART = 'RESTART';
 
 //REDUCER
 const reducer = (state = defaultState, action) => {
@@ -21,6 +24,7 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 round: 1,
+                status: 'playing'
             };
         case QUESTION:
             const randomNumbers = () => {
@@ -45,6 +49,19 @@ const reducer = (state = defaultState, action) => {
                 round: state.round + 1,
                 question: [],
                 answer: []
+            };
+        case LOST:
+            return {
+                ...state,
+                status: 'over'
+            }
+        case RESTART:
+            return {
+                ...state,
+                round: 0,
+                question: [],
+                answer: [],
+                status: 'pre'
             };
         default:
             return state;

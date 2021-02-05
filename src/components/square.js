@@ -26,16 +26,16 @@ function Square(props) {
         //Verifies the user's input as correct or incorrect
         for (let i = 0; i < answerArray.length; i++) {
             if(answerArray[i] === questionArray[i]) {
-                console.log('correct');
                 verification.push(1)
             }
             else {
-                console.log('incorrect');
+                alert('you lost');
+                store.dispatch({ type: 'LOST' });
             };
         };
 
         //Checks the number of answers the user got right to the number of questions. If they are equal, the user moves onto the next round.
-        verification.length === questionArray.length ? nextRound() : console.log('nothing')
+        if(verification.length === questionArray.length) nextRound();
 
     };
 
@@ -44,7 +44,7 @@ function Square(props) {
             type="button" 
             className={`h-24 w-24 border-solid border-4 rounded-md ${props.isLit ? 'border-red-800' : 'border-gray-400'}`}
             onClick={() => checkAnswer()}
-        >{props.id}</button>
+            >{props.id}</button>
     )
     
 };
