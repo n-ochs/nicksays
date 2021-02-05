@@ -2,6 +2,7 @@ import React from 'react';
 import store from '../redux/store';
 
 function Lost() {
+    
     return (
         <div className="text-3xl text-center">
             <p>You lost on round {store.getState().question.length}</p>
@@ -9,6 +10,7 @@ function Lost() {
             <p>Placeholder for leaderboard form</p>
         </div>
     );
+
 };
 
 export default Lost;

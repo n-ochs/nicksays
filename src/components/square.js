@@ -21,12 +21,12 @@ function Square(props) {
         const questionArray = store.getState().question;
 
         //Blank verification array for checking later
-        let verification = []
+        let verification = [];
 
         //Verifies the user's input as correct or incorrect
         for (let i = 0; i < answerArray.length; i++) {
             if(answerArray[i] === questionArray[i]) {
-                verification.push(1)
+                verification.push(1);
             }
             else {
                 alert('you lost');
@@ -45,7 +45,7 @@ function Square(props) {
             className={`h-24 w-24 border-solid border-4 rounded-md ${props.isLit ? 'border-red-800' : 'border-gray-400'}`}
             onClick={() => checkAnswer()}
             >{props.id}</button>
-    )
+    );
     
 };
 
