@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Square from './square';
 import Lost from './lost';
@@ -8,18 +7,16 @@ import store from '../redux/store';
 function Game() {
 
     const initialGrid = [
-        {id: 1, isLit: false},
-        {id: 2, isLit: false},
-        {id: 3, isLit: false},
-        {id: 4, isLit: false},
-        {id: 5, isLit: false},
-        {id: 6, isLit: false},
-        {id: 7, isLit: false},
-        {id: 8, isLit: false},
-        {id: 9, isLit: false}
+        {id: 1},
+        {id: 2},
+        {id: 3},
+        {id: 4},
+        {id: 5},
+        {id: 6},
+        {id: 7},
+        {id: 8},
+        {id: 9}
     ];
-
-    const [grid, setGrid] = useState(initialGrid);
 
     useSelector(state => state);
 
@@ -30,36 +27,28 @@ function Game() {
     };
 
     const askQuestion = () => {
+        store.dispatch({ type: 'STATUS_QUESTION' });
+
         const questionArray = store.getState().question;
-      
+
         let interval, i = 0;
         const lightUp = () => {
-            
-            let realIndex = questionArray[i] - 1;
-            let newlyLitGrid = [
-                {id: 1, isLit: false},
-                {id: 2, isLit: false},
-                {id: 3, isLit: false},
-                {id: 4, isLit: false},
-                {id: 5, isLit: false},
-                {id: 6, isLit: false},
-                {id: 7, isLit: false},
-                {id: 8, isLit: false},
-                {id: 9, isLit: false}
-            ];
-            newlyLitGrid[realIndex].isLit = true;
-            console.log(realIndex + 1);
-            setGrid(newlyLitGrid);
+            let flash = document.getElementById(questionArray[i]);
             setTimeout(() => {
-                newlyLitGrid[realIndex].isLit = false;
-                setGrid(newlyLitGrid);
-                console.log('changed') //https://tailwindcss.com/docs/transition-property
+                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-red-800";
+            }, 500);
+            setTimeout(() => {
+                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-gray-400";
             }, 1000);
             if (i < questionArray.length - 1) i++;
-            else clearInterval(interval);
+            else {
+                store.dispatch({ type: 'STATUS_ANSWER' });
+                clearInterval(interval);
+            };
         };
 
         interval = setInterval(lightUp, 750);
+
     };
 
     return (
@@ -71,13 +60,13 @@ function Game() {
                         <button type="button" className="bg-blue-600 mt-2 mb-2" onClick={() => gameStart()}>Start!</button>
                     </div> : 
 
-                store.getState().status === 'playing' ? 
+                store.getState().status === 'playing' || store.getState().status === 'question' || store.getState().status === 'answer' ? 
                     <div>
                         <p className="text-3xl text-center">Round: {store.getState().round}</p>
                         <div className="flex flex-grow items-center justify-center">
                             <div className="h-auto w-auto grid grid-cols-3 grid-flow-row gap-4 border-solid border-4 border-black text-center items-center p-4 justify-evenly">
-                                {grid.map((item) => {
-                                    return <Square key={item.id} isLit={item.isLit} id={item.id} askQuestion={askQuestion} />
+                                {initialGrid.map((item) => {
+                                    return <Square key={item.id} id={item.id} playable={item.playable} askQuestion={askQuestion} />
                                 })}
                             </div>
                         </div>

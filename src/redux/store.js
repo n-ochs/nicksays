@@ -5,7 +5,7 @@ export const defaultState = {
     round: 0,
     question: [],
     answer: [],
-    status: 'pre' //Status can be one of three values: pre, playing, over
+    status: 'pre' //Status can be one of four values: pre, question, answer, over
 };
 
 //ACTIONS
@@ -15,6 +15,8 @@ const ADD = 'ADD';
 const NEXT = 'NEXT';
 const LOST = 'LOST';
 const RESTART = 'RESTART';
+const STATUS_QUESTION = 'STATUS_QUESTION';
+const STATUS_ANSWER = 'STATUS_ANSWER';
 
 //REDUCER
 const reducer = (state = defaultState, action) => {
@@ -63,6 +65,16 @@ const reducer = (state = defaultState, action) => {
                 answer: [],
                 status: 'pre'
             };
+        case STATUS_QUESTION:
+            return {
+                ...state,
+                status: 'question'
+            }
+        case STATUS_ANSWER:
+            return {
+                ...state,
+                status: 'answer'
+            }
         default:
             return state;
     };
