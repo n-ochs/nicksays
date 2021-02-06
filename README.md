@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# NickSays
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[NickSays](https://nick-says.netlify.app/)
 
-## Available Scripts
+NickSays is a simple, yet challenging memory game.
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+The game is designed as a 3x3 grid. The user initiates the game by clicking the Start button. Each game starts on round 1, and each round Nick will ask the user a randomly generated question. The question length is based upon what round the user is on. The squares will light up, and after the user will be tasked to replicate the question by clicking on the corresponding squares. If the user is able to give the correct answer, they will move on to the next round, where the question length is incremented by 1. One wrong move, and it's all over. Click wisely.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Scope of functionalities
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Our bets page leverages a live sports API which provides statistics across all teams including but not limited to: Scores, Records, Schedules, Logos, Team Colors, Odds and Location. After logging in, users are able to place their wagers through our Bets page which feeds into our database. The odds are updated every 3 minutes to ensure users have the most up to date and accurate information. Bets are only allowed to be placed on games that are not in progress. Users are also able to check their historical performance and track their progress as the games finish.
 
-### `npm test`
+## Technologies and Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), [Express](https://expressjs.com/), [EJS](https://ejs.co/), [MongoDB](https://www.mongodb.com/), [Passport](http://www.passportjs.org/), [Google OAuth 2.0](http://www.passportjs.org/packages/passport-google-oauth20/), [dotenv](https://www.npmjs.com/package/dotenv), [Mocha](https://mochajs.org/).
 
-### `npm run build`
+## Running locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In order to run this game on your local machine, clone this repository and run the following commands:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+$ npm install
+$ npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Status
 
-### `npm run eject`
+Website is deployed to Netlify and running stable.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributors
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Nick Ochs](https://github.com/n-ochs),
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Future updates
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+We are working to add a new "continuous" game mode, where the questions are no longer generated each round, but rather they build on top of the previous round. We are also working on integrating keystrokes, so that the user will have the option of clicking the buttons with their mouse or using their keyboard. Stay tuned.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
