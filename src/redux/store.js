@@ -56,7 +56,7 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 status: 'over'
-            }
+            };
         case RESTART:
             return {
                 ...state,
@@ -69,12 +69,12 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 status: 'question'
-            }
+            };
         case STATUS_ANSWER:
             return {
                 ...state,
                 status: 'answer'
-            }
+            };
         default:
             return state;
     };
