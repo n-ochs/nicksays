@@ -8,13 +8,9 @@ NickSays is a simple, yet challenging memory game.
 
 The game is designed as a 3x3 grid. The user initiates the game by clicking the Start button. Each game starts on round 1, and each round Nick will ask the user a randomly generated question. The question length is based upon what round the user is on. The squares will light up, and after the user will be tasked to replicate the question by clicking on the corresponding squares. If the user is able to give the correct answer, they will move on to the next round, where the question length is incremented by 1. One wrong move, and it's all over. Click wisely.
 
-## Scope of functionalities
-
-text
-
 ## Technologies and Dependencies
 
-text
+React & Redux
 
 ## Running locally
 
