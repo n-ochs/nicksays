@@ -10,11 +10,11 @@ The game is designed as a 3x3 grid. The user initiates the game by clicking the 
 
 ## Scope of functionalities
 
-Our bets page leverages a live sports API which provides statistics across all teams including but not limited to: Scores, Records, Schedules, Logos, Team Colors, Odds and Location. After logging in, users are able to place their wagers through our Bets page which feeds into our database. The odds are updated every 3 minutes to ensure users have the most up to date and accurate information. Bets are only allowed to be placed on games that are not in progress. Users are also able to check their historical performance and track their progress as the games finish.
+text
 
 ## Technologies and Dependencies
 
-[Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), [Express](https://expressjs.com/), [EJS](https://ejs.co/), [MongoDB](https://www.mongodb.com/), [Passport](http://www.passportjs.org/), [Google OAuth 2.0](http://www.passportjs.org/packages/passport-google-oauth20/), [dotenv](https://www.npmjs.com/package/dotenv), [Mocha](https://mochajs.org/).
+text
 
 ## Running locally
 
@@ -31,7 +31,7 @@ Website is deployed to Netlify and running stable.
 
 ## Contributors
 
-[Nick Ochs](https://github.com/n-ochs),
+[Nick Ochs](https://github.com/n-ochs)
 
 ## Future updates
 
