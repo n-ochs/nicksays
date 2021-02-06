@@ -51,9 +51,10 @@ function Square(props) {
     return (
         <button 
             type="button" 
-            className="h-24 w-24 border-solid border-4 rounded-md border-gray-400" 
+            className="h-24 w-24 border-solid border-4 rounded-md border-gray-400 hover:bg-gray-600" 
             id={props.id} 
-            disabled={theStatus()}
+            disabled={theStatus()} 
+            style={{cursor: theStatus() ? 'not-allowed' : ''}} //May have to remove this line if it causes issues
             onClick={() => checkAnswer()}
             >{props.id}</button>
     );

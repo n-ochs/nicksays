@@ -4,7 +4,7 @@ import store from '../redux/store';
 function Lost() {
     
     return (
-        <div className="text-3xl text-center block">
+        <div className="text-center block">
             <p>You lost on round {store.getState().question.length}</p>
             <p>You entered: {store.getState().answer.join(', ')}</p>
             <p>The correct answer was: {store.getState().question.join(', ')}</p>
