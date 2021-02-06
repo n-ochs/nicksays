@@ -35,10 +35,10 @@ function Game() {
         const lightUp = () => {
             let flash = document.getElementById(questionArray[i]);
             setTimeout(() => {
-                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-red-800 hover:bg-gray-600";
+                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-red-800";
             }, 500);
             setTimeout(() => {
-                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-gray-400 hover:bg-gray-600";
+                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-gray-400";
             }, 1000);
             if (i < questionArray.length - 1) i++;
             else {
