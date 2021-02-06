@@ -35,14 +35,16 @@ function Game() {
         const lightUp = () => {
             let flash = document.getElementById(questionArray[i]);
             setTimeout(() => {
-                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-red-800";
+                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-red-800 hover:bg-gray-600";
             }, 500);
             setTimeout(() => {
-                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-gray-400";
+                flash.className = "h-24 w-24 border-solid border-4 rounded-md border-gray-400 hover:bg-gray-600";
             }, 1000);
             if (i < questionArray.length - 1) i++;
             else {
-                store.dispatch({ type: 'STATUS_ANSWER' });
+                setTimeout(() => {
+                    store.dispatch({ type: 'STATUS_ANSWER' });
+                }, 1000);
                 clearInterval(interval);
             };
         };
@@ -66,7 +68,7 @@ function Game() {
                         <div className="flex flex-grow items-center justify-center">
                             <div className="h-auto w-auto grid grid-cols-3 grid-flow-row gap-4 border-solid border-4 border-black text-center items-center p-4 justify-evenly">
                                 {initialGrid.map((item) => {
-                                    return <Square key={item.id} id={item.id} playable={item.playable} askQuestion={askQuestion} />
+                                    return <Square key={item.id} id={item.id} askQuestion={askQuestion} />
                                 })}
                             </div>
                         </div>
