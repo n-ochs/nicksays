@@ -27,6 +27,8 @@ function Game() {
     };
 
     const askQuestion = () => {
+        store.dispatch({ type: 'STATUS_QUESTION' });
+
         const questionArray = store.getState().question;
 
         let interval, i = 0;
@@ -39,7 +41,10 @@ function Game() {
                 flash.className = "h-24 w-24 border-solid border-4 rounded-md border-gray-400";
             }, 1000);
             if (i < questionArray.length - 1) i++;
-            else clearInterval(interval);
+            else {
+                store.dispatch({ type: 'STATUS_ANSWER' });
+                clearInterval(interval);
+            };
         };
 
         interval = setInterval(lightUp, 750);
@@ -55,13 +60,13 @@ function Game() {
                         <button type="button" className="bg-blue-600 mt-2 mb-2" onClick={() => gameStart()}>Start!</button>
                     </div> : 
 
-                store.getState().status === 'playing' ? 
+                store.getState().status === 'playing' || store.getState().status === 'question' || store.getState().status === 'answer' ? 
                     <div>
                         <p className="text-3xl text-center">Round: {store.getState().round}</p>
                         <div className="flex flex-grow items-center justify-center">
                             <div className="h-auto w-auto grid grid-cols-3 grid-flow-row gap-4 border-solid border-4 border-black text-center items-center p-4 justify-evenly">
                                 {initialGrid.map((item) => {
-                                    return <Square key={item.id} id={item.id} askQuestion={askQuestion} />
+                                    return <Square key={item.id} id={item.id} playable={item.playable} askQuestion={askQuestion} />
                                 })}
                             </div>
                         </div>

@@ -29,7 +29,6 @@ function Square(props) {
                 verification.push(1);
             }
             else {
-                alert('you lost');
                 store.dispatch({ type: 'LOST' });
             };
         };
@@ -39,11 +38,22 @@ function Square(props) {
 
     };
 
+    //Checks the status of the game in order to toggle the disabled property on the buttons
+    let theStatus = () => {
+        if(store.getState().status === 'answer') {
+            return false;
+        }
+        else {
+            return true;
+        };
+    };
+
     return (
         <button 
             type="button" 
-            className={`h-24 w-24 border-solid border-4 rounded-md border-gray-400`} 
-            id={props.id}
+            className="h-24 w-24 border-solid border-4 rounded-md border-gray-400" 
+            id={props.id} 
+            disabled={theStatus()}
             onClick={() => checkAnswer()}
             >{props.id}</button>
     );
