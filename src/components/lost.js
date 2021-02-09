@@ -27,7 +27,8 @@ function Lost() {
                 <p>The correct answer was: {store.getState().question.join(', ')}</p>
             </div>
 
-            <div>
+            <div className="mt-4">
+                <h1>Want to add your high score to the leaderboard?</h1>
                 <input className="border-solid border-4 rounded-md border-gray-400" type="text" onChange={handleOnChange} value={name}></input>
                 <button onClick={addNameToLeaderboard}>Submit</button>
             </div>
